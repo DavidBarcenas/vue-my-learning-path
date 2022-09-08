@@ -2,30 +2,34 @@
 export default {
   data() {
     return {
-      counter: 0,
-      attr: "src",
-      imageUrl:
-        "https://images.pexels.com/photos/8581056/pexels-photo-8581056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      text: "Use attributes and events",
+      textWithModel: "Use v-model",
+      firstName: "Dave",
+      lastName: "Bárcenas",
+      currentDate: new Date(),
     };
   },
   methods: {
-    incrementCount() {
-      this.counter++;
+    input(e) {
+      this.text = e.target.value;
     },
-    onSubmit() {
-      console.log("Sending form");
+  },
+  computed: {
+    fullName() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+    formatDate() {
+      return this.currentDate.toLocaleDateString("es-mx");
     },
   },
 };
 </script>
 
 <template>
-  <img v-bind:[attr]="imageUrl" alt="Random image" width="200" />
-  <h1>count is {{ counter }}</h1>
-  <button v-on:click="incrementCount">increment</button>
+  <h1>{{ text }} - {{ textWithModel }}</h1>
+  <input type="text" @input="input" :value="text" />
+  <input type="text" v-model="firstName" />
 
-  <form v-on:submit.prevent="onSubmit">
-    <input type="text" name="fullName" />
-    <button>Send</button>
-  </form>
+  <h2>{{ fullName }}</h2>
+  <p>{{ formatDate }}</p>
 </template>

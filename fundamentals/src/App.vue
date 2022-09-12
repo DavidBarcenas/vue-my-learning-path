@@ -7,6 +7,7 @@ export default {
       firstName: "Dave",
       lastName: "Bárcenas",
       currentDate: new Date(),
+      posts: [{ message: "foo" }, { message: "bar" }],
     };
   },
   methods: {
@@ -22,6 +23,11 @@ export default {
       return this.currentDate.toLocaleDateString("es-mx");
     },
   },
+  watch: {
+    text(value) {
+      console.log("Watcher activated! ", value);
+    },
+  },
 };
 </script>
 
@@ -32,4 +38,11 @@ export default {
 
   <h2>{{ fullName }}</h2>
   <p>{{ formatDate }}</p>
+
+  <div class="list">
+    <div class="item" v-for="(item, index) in posts" :key="index">
+      <h4>Title - {{ index }}</h4>
+      <p>lorem ipsum</p>
+    </div>
+  </div>
 </template>

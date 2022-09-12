@@ -1,3 +1,18 @@
 <template>
-  <h1>Composition API</h1>
+  <component :is="dynamic"></component>
 </template>
+
+<script>
+import AppHeader from "./components/header.vue";
+
+export default {
+  components: {
+    AppHeader,
+  },
+  data() {
+    return {
+      dynamic: "AppHeader",
+    };
+  },
+};
+</script>

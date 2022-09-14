@@ -22,7 +22,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;

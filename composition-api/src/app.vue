@@ -2,11 +2,18 @@
   <app-header></app-header>
   <button @click="toggleModal">Toggle modal</button>
   <modal :showModal="show" text="Are you sure?" />
-  <h2>{{ counter }}</h2>
+  <h2>{{ counter }} - {{ fullName }}</h2>
 </template>
 
 <script>
-import { defineAsyncComponent, onMounted, onUnmounted, ref } from "vue";
+import {
+  defineAsyncComponent,
+  onMounted,
+  onUnmounted,
+  ref,
+  watch,
+  computed,
+} from "vue";
 import Modal from "./components/modal.vue";
 
 const AppHeader = defineAsyncComponent(() => import("./components/header.vue"));
@@ -16,21 +23,27 @@ export default {
   setup(props, context) {
     const show = ref(false);
     const counter = ref(0);
+    const firstName = ref("David");
+    const lastName = ref("Barcenas");
 
     onMounted(() => console.log("mounted", context));
     onUnmounted(() => console.log("onUnmounted"));
 
-    setInterval(() => counter.value++, 1000);
+    // setInterval(() => counter.value++, 1000);
+
+    watch(counter, (curr, prev) => {
+      console.log(curr, prev);
+    });
+
+    const fullName = computed(() => {
+      return `${firstName.value} ${lastName.value}`;
+    });
 
     return {
       show,
       counter,
+      fullName,
     };
-  },
-  methods: {
-    toggleModal() {
-      this.show = !this.show;
-    },
   },
 };
 </script>

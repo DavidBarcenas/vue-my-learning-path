@@ -1,5 +1,5 @@
 <template>
-  <app-header></app-header>
+  <app-header :fullName="fullName"></app-header>
   <button @click="toggleModal">Toggle modal</button>
   <modal :showModal="show" text="Are you sure?" />
   <h2>{{ counter }} - {{ fullName }}</h2>

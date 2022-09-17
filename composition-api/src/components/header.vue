@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>Composition API</h1>
+    <h1>Composition API - {{ name }}</h1>
     <button @click="show = !show">Menu</button>
     <transition name="fade">
       <app-menu v-show="show"></app-menu>
@@ -9,14 +9,22 @@
 </template>
 
 <script>
+import { ref, toRef } from "vue";
 import AppMenu from "./menu.vue";
 
 export default {
   name: "app-header",
   components: { AppMenu },
-  data() {
+  props: {
+    fullName: String,
+  },
+  setup(props) {
+    const show = ref(false);
+    const name = toRef(props, "fullName");
+
     return {
-      show: false,
+      show,
+      name,
     };
   },
 };

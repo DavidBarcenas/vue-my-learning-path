@@ -13,6 +13,7 @@ import {
   ref,
   watch,
   computed,
+  provide,
 } from "vue";
 import Modal from "./components/modal.vue";
 
@@ -38,6 +39,8 @@ export default {
     const fullName = computed(() => {
       return `${firstName.value} ${lastName.value}`;
     });
+
+    provide("username", "Davepro");
 
     return {
       show,

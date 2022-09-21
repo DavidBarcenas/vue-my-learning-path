@@ -3,6 +3,7 @@ import Layout from "./layout.vue";
 import Header from "./header.vue";
 import Resume from "./resume.vue";
 import Movements from "./movements.vue";
+import AddMovement from "./add-movement.vue";
 
 let moveList = [
   {
@@ -71,7 +72,7 @@ export default {
           <h3>Chart</h3>
         </template>
         <template #actions>
-          <button>Calculate</button>
+          <AddMovement />
         </template>
       </Resume>
     </template>

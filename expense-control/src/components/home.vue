@@ -17,7 +17,7 @@ export default {
       <Header />
     </template>
     <template #resume>
-      <Resume />
+      <Resume :label="'Ahorro total'" :amount="5000" :total-amount="54321" />
     </template>
     <template #movements>
       <Movements />

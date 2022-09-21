@@ -7,7 +7,12 @@ const { label, amount, totalAmount } = defineProps<{
   totalAmount: number;
 }>();
 
+const currencyFormatter = new Intl.NumberFormat("es-MX", {
+  style: "currency",
+  currency: "MXN",
+});
 const total = computed(() => (amount ? amount : totalAmount));
+const amountCurrency = computed(() => currencyFormatter.format(total.value));
 </script>
 
 <script lang="ts">
@@ -19,7 +24,13 @@ export default {
 <template>
   <div class="resume-container">
     <p>{{ label }}</p>
-    <h2>{{ total }}</h2>
+    <h2>{{ amountCurrency }}</h2>
+    <div class="chart">
+      <slot name="chart"></slot>
+    </div>
+    <div class="actions">
+      <slot name="actions"></slot>
+    </div>
   </div>
 </template>
 

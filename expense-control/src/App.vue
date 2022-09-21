@@ -5,7 +5,7 @@ import Home from "./components/home.vue";
 
 <script lang="ts">
 export default {
-  name: "main-app",
+  name: "app-root",
 };
 </script>
 

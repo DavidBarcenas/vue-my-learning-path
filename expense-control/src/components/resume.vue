@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-const { label, amount, totalAmount } = defineProps<{
+const props = defineProps<{
   label: string;
   amount: number;
   totalAmount: number;
 }>();
-
+const total = computed(() => (props.amount ? props.amount : props.totalAmount));
+const amountCurrency = computed(() => currencyFormatter.format(total.value));
 const currencyFormatter = new Intl.NumberFormat("es-MX", {
   style: "currency",
   currency: "MXN",
 });
-const total = computed(() => (amount ? amount : totalAmount));
-const amountCurrency = computed(() => currencyFormatter.format(total.value));
 </script>
 
 <script lang="ts">

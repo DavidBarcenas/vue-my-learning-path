@@ -35,8 +35,10 @@ export default {
   width: 100%;
   z-index: 10;
   max-height: 70%;
-  background-color: #dde6dd;
+  background-color: #fff;
   color: #717171;
+  text-align: center;
+  overflow-y: scroll;
 }
 .movements .header {
   height: 4rem;

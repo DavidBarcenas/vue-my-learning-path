@@ -3,6 +3,12 @@ import SplashScreen from "./components/splash-screen.vue";
 import Home from "./components/home.vue";
 </script>
 
+<script lang="ts">
+export default {
+  name: "main-app",
+};
+</script>
+
 <template>
   <Suspense>
     <Home />

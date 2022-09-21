@@ -4,7 +4,7 @@ import Header from "./header.vue";
 import Resume from "./resume.vue";
 import Movements from "./movements.vue";
 
-const moveList = [
+let moveList = [
   {
     id: 0,
     title: "Movement 1",
@@ -48,6 +48,10 @@ const moveList = [
     amount: 43534,
   },
 ];
+
+const handleRemove = (id: number) => {
+  moveList = moveList.filter((movement) => movement.id != id);
+};
 </script>
 
 <script lang="ts">
@@ -72,7 +76,7 @@ export default {
       </Resume>
     </template>
     <template #movements>
-      <Movements :list="moveList" />
+      <Movements :list="moveList" @remove="handleRemove" />
     </template>
   </Layout>
 </template>

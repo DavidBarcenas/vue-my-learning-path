@@ -1,0 +1,27 @@
+<script lang="ts">
+export default {
+  name: "app-graphic",
+};
+</script>
+
+<template>
+  <div>
+    <svg viewBox="0 0 300 200">
+      <line stroke="#fff" stroke-width="2" x1="0" y1="100" x2="300" y2="100" />
+      <polyline
+        fill="none"
+        stroke="#6fdd6f"
+        stroke-width="2"
+        points="0,0 100,100 200,100 300,200"
+      />
+      <line
+        stroke="#ebebeba3"
+        stroke-width="2"
+        x1="200"
+        y1="0"
+        x2="200"
+        y2="200"
+      />
+    </svg>
+  </div>
+</template>

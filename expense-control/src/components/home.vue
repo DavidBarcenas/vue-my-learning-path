@@ -4,6 +4,7 @@ import Header from "./header.vue";
 import Resume from "./resume.vue";
 import Movements from "./movements.vue";
 import AddMovement from "./add-movement.vue";
+import Graphic from "./graphic.vue";
 
 let moveList = [
   {
@@ -69,7 +70,7 @@ export default {
     <template #resume>
       <Resume :label="'Ahorro total'" :amount="5000" :total-amount="54321">
         <template #chart>
-          <h3>Chart</h3>
+          <Graphic />
         </template>
         <template #actions>
           <AddMovement />

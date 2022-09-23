@@ -48,4 +48,8 @@ export default {
   font-weight: bold;
   line-height: normal;
 }
+.resume-container .chart {
+  width: 50%;
+  margin: auto;
+}
 </style>

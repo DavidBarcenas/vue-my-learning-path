@@ -51,6 +51,8 @@ let moveList = [
   },
 ];
 
+const graphicAmounts = [100, 200, 500, 200, -350, 700, -100, 0];
+
 const handleRemove = (id: number) => {
   moveList = moveList.filter((movement) => movement.id != id);
 };
@@ -70,7 +72,7 @@ export default {
     <template #resume>
       <Resume :label="'Ahorro total'" :amount="5000" :total-amount="54321">
         <template #chart>
-          <Graphic />
+          <Graphic :amounts="graphicAmounts" />
         </template>
         <template #actions>
           <AddMovement />

@@ -41,6 +41,6 @@ export default {
   color: red;
 }
 .green {
-  color: green;
+  color: #fff;
 }
 </style>

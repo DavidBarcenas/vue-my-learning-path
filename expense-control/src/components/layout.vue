@@ -35,8 +35,8 @@ export default {
   width: 100%;
   z-index: 10;
   max-height: 70%;
-  background-color: #fff;
-  color: #717171;
+  background-color: #009688;
+  color: #fff;
   text-align: center;
   overflow-y: scroll;
 }
@@ -48,7 +48,7 @@ export default {
   display: block;
   width: 100px;
   height: 10px;
-  background-color: #717171;
+  background-color: #fff;
   border-radius: 10px;
   margin: 0 auto;
 }

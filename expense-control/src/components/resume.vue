@@ -50,6 +50,6 @@ export default {
 }
 .resume-container .chart {
   width: 50%;
-  margin: auto;
+  margin: 1.5rem auto;
 }
 </style>

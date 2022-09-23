@@ -43,7 +43,7 @@ export default {
         :points="points"
       />
       <line
-        stroke="#ebebeba3"
+        stroke="#4FC3F7"
         stroke-width="2"
         x1="200"
         y1="0"

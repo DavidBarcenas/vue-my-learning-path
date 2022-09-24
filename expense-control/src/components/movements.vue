@@ -25,8 +25,8 @@ export default {
         <p>{{ item.description }}</p>
         <span
           :class="{
-            red: isNegative(item.amount).value,
-            green: !isNegative(item.amount).value,
+            negative: isNegative(item.amount).value,
+            positive: !isNegative(item.amount).value,
           }"
           >{{ item.amount }}</span
         >
@@ -37,10 +37,10 @@ export default {
 </template>
 
 <style scoped>
-.red {
+.negative {
   color: red;
 }
-.green {
+.positive {
   color: #fff;
 }
 </style>

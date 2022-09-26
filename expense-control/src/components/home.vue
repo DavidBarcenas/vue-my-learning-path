@@ -64,7 +64,7 @@ const graphicAmounts = computed(() => {
     .filter((m) => {
       const today = new Date();
       const oldDate = today.setDate(today.getDate() - 30);
-      return m.time > oldDate;
+      return new Date().setDate(m.time.getDate()) > oldDate;
     })
     .map((m) => m.amount);
 

@@ -51,7 +51,7 @@ let moveList = [
   },
 ];
 
-const graphicAmounts = [100, 200, 500, 200, -350, 700, -100, 0];
+const graphicAmounts = [100, 300, 200, 200, -350, 700, -100, 0];
 
 const handleRemove = (id: number) => {
   moveList = moveList.filter((movement) => movement.id != id);

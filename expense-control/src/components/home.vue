@@ -5,9 +5,9 @@ import Resume from "./resume.vue";
 import Movements from "./movements.vue";
 import AddMovement from "./add-movement.vue";
 import Graphic from "./graphic.vue";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
-let moveList = [
+let moveList = ref([
   {
     id: 0,
     title: "Movement 1",
@@ -57,10 +57,10 @@ let moveList = [
     amount: 43534,
     time: new Date("09-01-2022"),
   },
-];
+]);
 
 const graphicAmounts = computed(() => {
-  const lastDays = moveList
+  const lastDays = moveList.value
     .filter((m) => {
       const today = new Date();
       const oldDate = today.setDate(today.getDate() - 30);
@@ -77,8 +77,12 @@ const graphicAmounts = computed(() => {
 });
 
 const handleRemove = (id: number) => {
-  moveList = moveList.filter((movement) => movement.id != id);
+  moveList.value = moveList.value.filter((movement) => movement.id != id);
 };
+
+function create(movement: any) {
+  moveList.value.push(movement);
+}
 </script>
 
 <script lang="ts">
@@ -98,7 +102,7 @@ export default {
           <Graphic :amounts="graphicAmounts" />
         </template>
         <template #actions>
-          <AddMovement />
+          <AddMovement @create="create" />
         </template>
       </Resume>
     </template>

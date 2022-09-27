@@ -7,9 +7,17 @@ const title = ref("");
 const amount = ref(0);
 const description = ref("");
 const type = ref("Entry");
+const emit = defineEmits(["create"]);
 
 function handleSubmit(e: any) {
   showModal.value = !showModal.value;
+  emit("create", {
+    title: title.value,
+    description: description.value,
+    amount: type.value === "Entry" ? amount.value : -amount.value,
+    time: new Date(),
+    id: new Date(),
+  });
 }
 </script>
 

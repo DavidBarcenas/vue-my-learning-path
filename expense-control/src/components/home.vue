@@ -5,59 +5,9 @@ import Resume from "./resume.vue";
 import Movements from "./movements.vue";
 import AddMovement from "./add-movement.vue";
 import Graphic from "./graphic.vue";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref, type Ref } from "vue";
 
-let moveList = ref([
-  {
-    id: 0,
-    title: "Movement 1",
-    description: "lorem ipsum",
-    amount: 234,
-    time: new Date("09-01-2022"),
-  },
-  {
-    id: 1,
-    title: "Movement 2",
-    description: "lorem ipsum",
-    amount: 2323,
-    time: new Date("09-01-2022"),
-  },
-  {
-    id: 2,
-    title: "Movement 3",
-    description: "lorem ipsum",
-    amount: 43534,
-    time: new Date("09-01-2022"),
-  },
-  {
-    id: 3,
-    title: "Movement 4",
-    description: "lorem ipsum",
-    amount: 43534,
-    time: new Date("09-01-2022"),
-  },
-  {
-    id: 4,
-    title: "Movement 5",
-    description: "lorem ipsum",
-    amount: 43534,
-    time: new Date("09-01-2022"),
-  },
-  {
-    id: 5,
-    title: "Movement 6",
-    description: "lorem ipsum",
-    amount: 43534,
-    time: new Date("09-01-2022"),
-  },
-  {
-    id: 6,
-    title: "Movement 7",
-    description: "lorem ipsum",
-    amount: 43534,
-    time: new Date("09-01-2022"),
-  },
-]);
+let moveList: Ref<any[]> = ref([]);
 
 const graphicAmounts = computed(() => {
   const lastDays = moveList.value
@@ -78,11 +28,24 @@ const graphicAmounts = computed(() => {
 
 const handleRemove = (id: number) => {
   moveList.value = moveList.value.filter((movement) => movement.id != id);
+  save();
 };
 
 function create(movement: any) {
   moveList.value.push(movement);
+  save();
 }
+
+function save() {
+  localStorage.setItem("movements", JSON.stringify(moveList.value));
+}
+
+onMounted(() => {
+  const movements = localStorage.getItem("movements");
+  if (movements) {
+    moveList.value = JSON.parse(movements);
+  }
+});
 </script>
 
 <script lang="ts">

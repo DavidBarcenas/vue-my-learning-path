@@ -19,7 +19,7 @@ const graphicAmounts = computed(() => {
     .map((m) => m.amount);
 
   return lastDays.map((m, i) => {
-    const lastMovements = lastDays.slice(0, i);
+    const lastMovements = lastDays.slice(0, i + 1);
     return lastMovements.reduce((sum, movement) => {
       return sum + movement;
     }, 0);

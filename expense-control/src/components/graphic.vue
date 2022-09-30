@@ -16,7 +16,7 @@ const points = computed(() => {
     const x = (300 / totalItems) * (i + 1);
     const y = convertToPixels(amount);
     return `${points} ${x},${y}`;
-  }, "0, 100");
+  }, `0, ${convertToPixels(amounts.value.length ? amounts.value[0] : 0)}`);
 });
 
 function convertToPixels(amount: number) {
